@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SkillForge Design System - Minimal with Basic Colors + Dark Mode
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* Light mode - Clean and minimal */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 9%;
+
+    /* Primary - Clean Blue */
+    --primary: 214 100% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Neutral Gray */
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
+
+    /* Accent - Modern Purple */
+    --accent: 262 83% 58%;
+    --accent-foreground: 0 0% 100%;
+
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 90%;
+    --input: 0 0% 96%;
+    --ring: 214 100% 50%;
+
+    --radius: 0.5rem;
+
+    /* Theme transition */
+    --theme-transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+
+    /* Sidebar variables */
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    /* Dark mode - Clean and minimal */
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    /* Primary - Bright Blue for dark mode */
+    --primary: 214 100% 60%;
+    --primary-foreground: 0 0% 9%;
+
+    /* Secondary - Dark Gray */
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    /* Accent - Bright Purple for dark mode */
+    --accent: 262 83% 68%;
+    --accent-foreground: 0 0% 9%;
+
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 214 100% 60%;
+
+    /* Sidebar variables for dark mode */
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  * {
+    @apply border-border;
+    transition: var(--theme-transition);
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    transition: var(--theme-transition);
+  }
+
+  /* Modern card styles */
+  .modern-card {
+    @apply bg-card border border-border rounded-lg shadow-sm hover:shadow-md;
+    transition: all 0.2s ease;
+  }
+  
+  /* Glass effect for overlays */
+  .glass-overlay {
+    @apply backdrop-blur-sm bg-background/80 border border-border;
+  }
+
+  /* Smooth transitions */
+  .transition-theme {
+    transition: var(--theme-transition);
+  }
+  
+  /* Button animations */
+  .btn-hover {
+    @apply transition-all duration-200 hover:scale-105;
+  }
+
+  /* Dark mode toggle animation */
+  .theme-toggle {
+    @apply relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-300;
+  }
+  
+  .theme-toggle-handle {
+    @apply inline-block h-4 w-4 transform rounded-full bg-white transition-transform duration-300;
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+}
